@@ -1,0 +1,1 @@
+java -jar target\sugarMS-1.0-SNAPSHOT.jar
