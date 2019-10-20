@@ -13,12 +13,14 @@ public class SugarReposytory {
     @Autowired
     SessionFactory sessionFactory;
 
-    public List<SugarTests> findTests(Long lastId) {
-
+    public List<SugarTests> findTests(int page) {
+        int maxResult = 20;
+        if (page > 1) page = (page - 1) * 20;
+                else page = 0;
         return sessionFactory.getCurrentSession()
-                .createQuery("from SugarTests sa WHERE sa.id > :param1", SugarTests.class)
-                .setParameter("param1", lastId)
-                .setMaxResults(20)
+                .createQuery("from SugarTests", SugarTests.class)
+                .setFirstResult(page)
+                .setMaxResults(maxResult)
                 .list();
 
     }

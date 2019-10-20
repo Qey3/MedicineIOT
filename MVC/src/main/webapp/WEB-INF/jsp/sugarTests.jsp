@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="header.jsp"/>
 
 <h1>Sugar Tests</h1>
@@ -12,13 +13,12 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="tests" tests="${tests}">
+    <c:forEach var="test" items="${tests}">
         <tr>
-            <th scope="row">${tests.id}</th>
-            <td><a href="${pageContext.request.contextPath}/product/item/${tests.id}">${tests.id}</a></td>
-            <td>${tests.time}</td>
-            <td>${tests.device_id}</td>
-            <td>${tests.glucose}</td>
+            <td scope="row"><a href="${pageContext.request.contextPath}/product/item/${test.id}">${test.id}</a></td>
+            <td>${test.time}</td>
+            <td>${test.device_id}</td>
+            <td>${test.glucose}</td>
         </tr>
     </c:forEach>
     </tbody>

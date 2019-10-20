@@ -14,7 +14,7 @@ public class SugarService {
     @Autowired
     SugarReposytory reposytory;
 
-    public List<SugarTests> getTests(Long lastId) {
-        return reposytory.findTests(lastId);
+    public List<SugarTests> getTests(int page) {
+        return reposytory.findTests(page);
     }
 }
