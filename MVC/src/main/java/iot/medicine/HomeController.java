@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping("/sugar-home")
+@RequestMapping("/homePage")
 public class HomeController {
 
     private static Logger log = Logger.getLogger("HomeController");

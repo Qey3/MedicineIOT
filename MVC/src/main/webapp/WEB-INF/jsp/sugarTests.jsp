@@ -15,7 +15,7 @@
     <tbody>
     <c:forEach var="test" items="${tests}">
         <tr>
-            <td scope="row"><a href="${pageContext.request.contextPath}/product/item/${test.id}">${test.id}</a></td>
+            <td scope="row">${test.id}</td>
             <td>${test.time}</td>
             <td>${test.device_id}</td>
             <td>${test.glucose}</td>
