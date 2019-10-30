@@ -1,3 +1,5 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,10 +32,13 @@
                     My account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/cart">Cart</a>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/orders">Orders</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/help">Help</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/my-devices">Devices</a>
+                    <sec:authorize access="isAuthenticated()">
+                        <div class="dropdown-divider"></div>
+                        <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                        </li>
+                    </sec:authorize>
                 </div>
             </li>
             <li class="nav-item">
