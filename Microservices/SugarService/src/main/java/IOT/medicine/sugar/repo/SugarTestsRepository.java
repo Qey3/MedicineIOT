@@ -1,7 +1,8 @@
 package IOT.medicine.sugar.repo;
 
-import IOT.medicine.sugar.pojo.SugarTests;
+import my.entity.sugarMS.SugarTests;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 public interface SugarTestsRepository extends CrudRepository<SugarTests, Long> {
 }

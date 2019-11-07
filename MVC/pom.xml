@@ -18,6 +18,13 @@
     </properties>
 
     <dependencies>
+        <!-- Entity -->
+        <dependency>
+            <groupId>my.entity</groupId>
+            <artifactId>entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -197,6 +204,44 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <!--Liquibase-->
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+                <executions>
+                    <execution>
+                        <id>create_database</id>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <changeLogFile>src/main/resources/changeLog.xml</changeLogFile>
+                            <url>
+                                jdbc:mysql://localhost:3306/sugaranalysisdata?createDatabaseIfNotExist=true&amp;useSSL=false
+                            </url>
+                            <username>root</username>
+                            <password>root</password>
+                            <driver>com.mysql.jdbc.Driver</driver>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>create_database_junit</id>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <changeLogFile>src/main/resources/changeLog.xml</changeLogFile>
+                            <url>jdbc:mysql://localhost:3306/sugaranalysisdata_junit?createDatabaseIfNotExist=true&amp;useSSL=false</url>
+                            <username>root</username>
+                            <password>root</password>
+                            <driver>com.mysql.jdbc.Driver</driver>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -1,6 +1,11 @@
-package IOT.medicine.sugar.pojo;
+package my.entity.sugarMS;
 
-public class CreateTestsCmd {
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+
+public class RowSugarData {
 
     private Long deviceId;
 

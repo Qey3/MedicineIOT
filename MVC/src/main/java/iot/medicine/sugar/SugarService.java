@@ -1,6 +1,6 @@
 package iot.medicine.sugar;
 
-import iot.medicine.pojo.SugarTests;
+import my.entity.mvc.SugarTests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package IOT.medicine.sugar.controller;
 
-import IOT.medicine.sugar.pojo.CreateTestsCmd;
+import my.entity.sugarMS.RowSugarData;
 import IOT.medicine.sugar.service.SugarTestsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +14,8 @@ public class SugarTestsController {
     SugarTestsService sugarTestsService;
 
     @PostMapping("/send-glucose-analysis")
-    public void saveGlucose(@RequestBody CreateTestsCmd createTestsCmd){
-        sugarTestsService.saveAnalysis(createTestsCmd);
+    public void saveGlucose(@RequestBody RowSugarData rowSugarData){
+        sugarTestsService.saveAnalysis(rowSugarData);
     }
 
 }

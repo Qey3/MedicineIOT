@@ -32,7 +32,7 @@
                     My account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/my-devices">Devices</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/user-device-catalog">Devices</a>
                     <sec:authorize access="isAuthenticated()">
                         <div class="dropdown-divider"></div>
                         <li class="nav-item">
@@ -40,9 +40,6 @@
                         </li>
                     </sec:authorize>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/search">
