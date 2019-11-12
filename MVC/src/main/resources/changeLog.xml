@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="Snow">
+        <sql>
+            create table if not exists `roles`(
+            `id` integer not null primary key,
+            `roleName` varchar(100) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="Snow">
+        <sql>
+            insert into `roles` (`id`, `roleName`) values (1, 'USER');
+            insert into `roles` (`id`, `roleName`) values (2, 'ADMIN');
+            insert into `roles` (`id`, `roleName`) values (3, 'GUEST');
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="Snow">
+        <sql>
+            create table if not exists `devicetypes`(
+            `id` integer not null primary key,
+            `deviceTypeName` varchar(100) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="Snow">
+        <sql>
+            insert into `devicetypes` (`id`, `deviceTypeName`) values (1, 'SUGAR');
+            insert into `devicetypes` (`id`, `deviceTypeName`) values (2, 'CARDIO');
+        </sql>
+    </changeSet>
+
+<!--    <changeSet id="5" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `lastid`(-->
+<!--            `id` integer not null primary key,-->
+<!--            `last_id` BIGINT(20)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="5" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `users`(-->
+<!--            `id` BIGINT(20) not null primary key,-->
+<!--            `name` VARCHAR(255),-->
+<!--            `login` VARCHAR(255),-->
+<!--            `password` VARCHAR(255),-->
+<!--            `email` VARCHAR(255),-->
+<!--            `birthday` VARCHAR(255)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="6" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `users_roles`(-->
+<!--            `users_id` integer not null primary key,-->
+<!--            `roles_id` BIGINT(20) not null,-->
+<!--            FOREIGN KEY (users_id) REFERENCES roles(id),-->
+<!--            FOREIGN KEY (roles_id) REFERENCES users(id)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="7" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `devicesdetails`(-->
+<!--            `id` BIGINT(20) not null primary key,-->
+<!--            `serialNumber` BIGINT(20) not null,-->
+<!--            `startUse` timestamp,-->
+<!--            `endUse` timestamp,-->
+<!--            `user_id` BIGINT(20),-->
+<!--            FOREIGN KEY (user_id) REFERENCES users(id)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="8" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `device`(-->
+<!--            `id` BIGINT(20) not null primary key,-->
+<!--            `serialNumber` BIGINT(20) not null,-->
+<!--            `startUse` timestamp,-->
+<!--            `endUse` timestamp,-->
+<!--            `user_id` BIGINT(20),-->
+<!--            `devicesDetails_id` BIGINT(20),-->
+<!--            FOREIGN KEY (user_id) REFERENCES users(id),-->
+<!--            FOREIGN KEY (devicesDetails_id) REFERENCES devicesdetails(id)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="9" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `devicesdetails_devicestype`(-->
+<!--            `devicesdetails_id` integer not null primary key,-->
+<!--            `devicestype_id` BIGINT(20) not null,-->
+<!--            FOREIGN KEY (devicesdetails_id) REFERENCES devicestype(id),-->
+<!--            FOREIGN KEY (devicestype_id) REFERENCES devicesdetails(id)-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="10" author="Snow">-->
+<!--        <sql>-->
+<!--            create table if not exists `sugartests`(-->
+<!--            `id` BIGINT(20) not null primary key,-->
+<!--            `time` timestamp,-->
+<!--            `device` BIGINT(20),-->
+<!--            FOREIGN KEY (device) REFERENCES device(id),-->
+<!--            `glucose` double not null-->
+<!--            );-->
+<!--        </sql>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>

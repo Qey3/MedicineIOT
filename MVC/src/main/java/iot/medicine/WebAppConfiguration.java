@@ -18,6 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
@@ -31,10 +33,15 @@ import java.util.Properties;
 @EnableScheduling
 @PropertySource("classpath:database.properties")
 @PropertySource("classpath:hibernate.properties")
-public class WebAppConfiguration {
+public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 
     @Autowired
     Environment env;
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addRedirectViewController("/", "/homePage");
+    }
 
     @Bean
     InternalResourceViewResolver internalResourceViewResolver(){
