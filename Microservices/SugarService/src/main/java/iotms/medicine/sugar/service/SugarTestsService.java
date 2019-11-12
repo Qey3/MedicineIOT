@@ -1,13 +1,13 @@
-package IOT.medicine.sugar.service;
+package iotms.medicine.sugar.service;
 
 import my.entity.sugarMS.RowSugarData;
 import my.entity.sugarMS.SugarTests;
-import IOT.medicine.sugar.repo.SugarTestsRepository;
+import iotms.medicine.sugar.repo.SugarTestsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class SugarTestsService {

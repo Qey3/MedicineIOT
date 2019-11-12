@@ -12,8 +12,8 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class SugarTests implements Serializable {
+@Entity(name = "sugartestsmvc")
+public class SugarTestsMVC implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +21,9 @@ public class SugarTests implements Serializable {
 
     private Date analysisTime;
 
-    @ManyToOne
-    private Device device;
-
     private Double glucose;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Device device;
 
 }

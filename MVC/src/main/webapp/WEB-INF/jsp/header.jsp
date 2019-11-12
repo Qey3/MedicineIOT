@@ -13,7 +13,7 @@
     <title>Hello, world!</title>
 </head>
 <body>
-
+<sec:authorize access="isAuthenticated()">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -21,6 +21,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="${pageContext.request.contextPath}/homePage">Home <span class="sr-only">(current)</span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/sugar-page/1">Sugar Tests</a>
             </li>
@@ -39,8 +40,9 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
                         </li>
                     </sec:authorize>
-                </div>
-            </li>
+                   </div>
+                </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/search">
             <input name="searchStr" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -48,3 +50,4 @@
         </form>
     </div>
 </nav>
+</sec:authorize>

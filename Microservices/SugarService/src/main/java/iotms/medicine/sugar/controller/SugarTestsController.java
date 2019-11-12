@@ -1,7 +1,7 @@
-package IOT.medicine.sugar.controller;
+package iotms.medicine.sugar.controller;
 
 import my.entity.sugarMS.RowSugarData;
-import IOT.medicine.sugar.service.SugarTestsService;
+import iotms.medicine.sugar.service.SugarTestsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

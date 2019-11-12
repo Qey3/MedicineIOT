@@ -3,8 +3,9 @@
 <jsp:include page="header.jsp"/>
 <h1>Welcome to home page</h1>
 
-
 <sec:authorize access="!isAuthenticated()">
+
+    <h1>Please login first</h1>
     <tr>
         <th>
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/register">Register</a>

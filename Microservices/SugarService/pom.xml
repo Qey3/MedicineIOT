@@ -10,14 +10,16 @@
         <version>2.1.8.RELEASE</version>
     </parent>
 
+    <groupId>iotms.medicine.sugar</groupId>
+    <artifactId>sugarMS</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <file.encoding>UTF-8</file.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <groupId>IOT.medicine.sugar</groupId>
-    <artifactId>sugarMS</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>

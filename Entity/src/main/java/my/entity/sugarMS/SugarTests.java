@@ -11,17 +11,18 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
-@Entity
+@Entity(name = "sugartest")
 public class SugarTests implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "device")
     private Long device;
-
+    @Column(name = "glucose")
     private Double glucose;
 
+    @Column(name = "analysis_time")
     private Date analysisTime;
 
 }

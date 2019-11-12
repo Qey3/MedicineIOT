@@ -17,12 +17,22 @@
     <c:forEach var="test" items="${tests}">
         <tr>
             <td scope="row">${test.id}</td>
-            <td>${test.time}</td>
-            <td>${test.device_id}</td>
+            <td>${test.analysisTime}</td>
+            <td>${test.device.id}</td>
             <td>${test.glucose}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<c:if test="${page>1}">
+    <a class="btn btn-primary"
+       href="${pageContext.request.contextPath}/sugar-page/${page-1}"
+       role="button"><c:out value="${page-1}"/></a>
+</c:if>
+<c:if test="${tests.size()==21}">
+    <a class="btn btn-primary"
+       href="${pageContext.request.contextPath}/sugar-page/${page+1}"
+       role="button"><c:out value="${page+1}"/></a>
+</c:if>
 
 <jsp:include page="footer.jsp"/>
