@@ -1,7 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
 <jsp:include page="header.jsp"/>
 
 <h1>Used devices</h1>
@@ -38,16 +36,24 @@
             <sec:authorize access="hasRole('USER')">
                 <td>
 
-                    <c:if test="${device.endUse==null}">
-                        <a class="btn btn-primary"
-                           href="${pageContext.request.contextPath}/device-catalog/item/disable/${device.id}"
-                           role="button">Disable
-                            device</a>
-                    </c:if>
+                    <c:choose>
+                        <c:when test="${device.endUse==null}">
+                            <a class="btn btn-primary"
+                               href="${pageContext.request.contextPath}/device-catalog/item/disable/${device.id}"
+                               role="button">Disable
+                                device</a></c:when>
+                        <c:otherwise><p class="h6">Disabled</p></c:otherwise>
+                    </c:choose>
+                        <%--                    <c:if test="${device.endUse==null}">--%>
+                        <%--                        <a class="btn btn-primary"--%>
+                        <%--                           href="${pageContext.request.contextPath}/device-catalog/item/disable/${device.id}"--%>
+                        <%--                           role="button">Disable--%>
+                        <%--                            device</a>--%>
+                        <%--                    </c:if>--%>
 
-                    <c:if test="${device.endUse!=null}">
-                        <p class="h6">Disabled</p>
-                    </c:if>
+                        <%--                    <c:if test="${device.endUse!=null}">--%>
+                        <%--                        <p class="h6">Disabled</p>--%>
+                        <%--                    </c:if>--%>
                 </td>
             </sec:authorize>
         </tr>

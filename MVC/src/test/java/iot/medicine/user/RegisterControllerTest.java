@@ -50,7 +50,9 @@ public class RegisterControllerTest {
     }
 
     @Test
-//    @Sql({"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"})
+    @Sql(value ={"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "/dropAll.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void showRegisterPageTest() throws Exception {
 
         String viewName;
@@ -68,7 +70,9 @@ public class RegisterControllerTest {
     }
 
     @Test
-//    @Sql({"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"})
+    @Sql(value ={"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "/dropAll.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void registerFormTest() throws Exception {
 
         Users user = new Users(2L, "user2", "user2", "$10$JaW3vN/HMAMRrHrq8YCCBeDucJbtjubTziwVMnyeH.90wJUFV1UCa", "user2", "user2", new ArrayList<>(), new HashSet<>());

@@ -30,6 +30,7 @@ public class CopySugarService {
 
 
     @Scheduled(cron = "0/50 * * * * *")
+    @Transactional("transactionManager")
 //    @Scheduled(fixedDelay = 30000)
     public void executeCopy() {
         log.info("do new copy");

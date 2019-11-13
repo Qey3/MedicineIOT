@@ -21,9 +21,9 @@ public class Device implements Serializable {
     private Long serialNumber;
     private Date startUse;
     private Date endUse;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Users user;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private DevicesDetails devicesDetails;
     @OneToMany(mappedBy = "device", cascade = CascadeType.MERGE)
     private List<SugarTestsMVC> sugarTestMVC;

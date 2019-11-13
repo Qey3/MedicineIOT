@@ -28,7 +28,6 @@ public class CopySugarRepo {
     @Qualifier("sessionFactory_sugar")
     SessionFactory sessionFactory_ms;
 
-    @Transactional("transactionManager")
     public Long getLastId() {
         LastId last_id = sessionFactory.getCurrentSession()
                 .get(LastId.class, 1L);
@@ -36,13 +35,11 @@ public class CopySugarRepo {
         return last_id.getLast_id();
     }
 
-    @Transactional("transactionManager")
     public void saveLastId(LastId lastId) {
         sessionFactory.getCurrentSession()
                 .persist(lastId);
     }
 
-    @Transactional("transactionManager_sugar")
     public List<SugarTests> getNewSugarTests(Long last_id) {
         return sessionFactory_ms.getCurrentSession()
                 .createQuery("from sugartest where id > :param1", SugarTests.class)
@@ -50,20 +47,16 @@ public class CopySugarRepo {
                 .list();
     }
 
-    @Transactional("transactionManager")
     public void copySugarTests(List<SugarTestsMVC> sugarTests) {
-        log.info("copySugarTests" + sugarTests.size() + "List.get(0) - " + sugarTests.get(0));
-//        for(SugarTestsMVC testsMVC : sugarTests){
-//            try {
-//                sessionFactory.getCurrentSession()
-//                        .save(testsMVC);
-//            } catch (Exception e) {
-//                log.warning("exception when save: " + e.getMessage());
-//            }
-//        }
-
-        sessionFactory.getCurrentSession()
-                .persist(sugarTests.get(0));
+//        log.info("copySugarTests" + sugarTests.size() + "List.get(0) - " + sugarTests.get(0));
+        for(SugarTestsMVC testsMVC : sugarTests){
+            try {
+                sessionFactory.getCurrentSession()
+                        .save(testsMVC);
+            } catch (Exception e) {
+                log.warning("exception when save: " + e.getMessage());
+            }
+        }
     }
 
 
