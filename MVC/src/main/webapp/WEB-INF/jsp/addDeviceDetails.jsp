@@ -15,11 +15,11 @@
     </div>
 
     <div class="form-group">
-        <label for="exampleFormControlFile1">Device picture</label>
-        <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+        <label for="image">Device picture</label>
+        <input type="file" name="image" class="form-control-file" id="image">
     </div>
     <div class="form-group">
-        <select name="deviceTypes" id="deviceTypes" class="form-control">
+        <select name="1deviceTypes" id="1deviceTypes" class="form-control">
             <c:forEach var="type" items="${types}">
                 <option>${type}</option>
             </c:forEach>

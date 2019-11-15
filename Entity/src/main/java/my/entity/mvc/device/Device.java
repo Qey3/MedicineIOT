@@ -1,9 +1,11 @@
 package my.entity.mvc.device;
 
+import lombok.AllArgsConstructor;
 import my.entity.mvc.SugarTestsMVC;
 import my.entity.mvc.user.Users;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +14,9 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Device implements Serializable {
 
     @Id

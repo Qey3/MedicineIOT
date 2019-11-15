@@ -1,6 +1,7 @@
 package iot.medicine.user;
 
 import iot.medicine.device.DevicesRepository;
+import my.entity.mvc.device.DevicesDetails;
 import my.entity.mvc.user.RoleName;
 import my.entity.mvc.user.Roles;
 import my.entity.mvc.user.Users;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -75,4 +78,10 @@ public class UserService {
     public List<Device> getAllDevices() {
         return devicesRepository.getAllDevices();
     }
+
+    public List<Users> getAllUsers() {
+        return userRepository.getAllUsers();
+    }
+
+
 }

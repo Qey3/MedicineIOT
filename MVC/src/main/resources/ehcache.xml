@@ -6,7 +6,7 @@
 
     <cache name="my.entity.mvc.device.Device"
            timeToLiveSeconds="10"
-           maxEntriesLocalHeap="3">
+           maxEntriesLocalHeap="10000">
 <!--        maxEntriesLocalHeap="10000"-->
 <!--           maxEntriesLocalDisk="1000" -->
 <!--           eternal="false" -->

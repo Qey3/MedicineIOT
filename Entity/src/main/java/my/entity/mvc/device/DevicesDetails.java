@@ -25,7 +25,6 @@ public class DevicesDetails {
     @OneToMany(mappedBy = "devicesDetails")
     private List<Device> device;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private DeviceTypes deviceTypes;
-
 }

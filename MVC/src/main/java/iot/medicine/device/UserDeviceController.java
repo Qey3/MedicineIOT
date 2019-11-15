@@ -62,7 +62,7 @@ public class UserDeviceController {
         return "addUserDevice";
     }
 
-    @PostMapping("/addUserDevice/add")
+    @PostMapping("/addUserDevice/add-u-d")
     public String addNewProduct(@ModelAttribute("item") Device device,
                                 BindingResult result,
                                 Principal principal,

@@ -4,7 +4,7 @@
 
 <h1>Add Device Page</h1>
 
-<form action="http://localhost:8080/MedMvc/addUserDevice/add" method="post" enctype="multipart/form-data">
+<form action="http://localhost:8080/MedMvc/addUserDevice/add-u-d" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="serialNumber">Serial number</label>
         <input type="text" name="serialNumber" class="form-control" id="serialNumber" aria-describedby="emailHelp" placeholder="Enter serial number">

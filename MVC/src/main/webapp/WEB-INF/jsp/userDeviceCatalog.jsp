@@ -23,9 +23,9 @@
     <c:forEach var="device" items="${device}">
         <tr>
             <td scope="row"><a
-                    href="${pageContext.request.contextPath}/device-catalog/item/${device.id}">${device.id}</a></td>
+                    href="${pageContext.request.contextPath}/device-catalog/item/${device.devicesDetails.id}">${device.id}</a></td>
             <td><a
-                    href="${pageContext.request.contextPath}/device-catalog/item/${device.id}">${device.serialNumber}</a>
+                    href="${pageContext.request.contextPath}/device-catalog/item/${device.devicesDetails.id}">${device.serialNumber}</a>
             </td>
             <td>
                     ${device.startUse}

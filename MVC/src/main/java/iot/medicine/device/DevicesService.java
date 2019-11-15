@@ -3,6 +3,8 @@ package iot.medicine.device;
 import iot.medicine.user.UserRepository;
 import my.entity.mvc.SugarTestsMVC;
 import my.entity.mvc.device.Device;
+import my.entity.mvc.device.DeviceTypeName;
+import my.entity.mvc.device.DeviceTypes;
 import my.entity.mvc.device.DevicesDetails;
 import my.entity.mvc.user.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,19 @@ public class DevicesService {
     }
 
     @Transactional("transactionManager")
-    public void saveNewDevicesDetails(DevicesDetails device) {
+    public void saveNewDevicesDetails(DevicesDetails device, DeviceTypeName typeName) {
+
+        if(device.getDescription().replaceAll(" ", "").isEmpty())device.setDescription("No data");
+
+        DeviceTypes deviceTypes = devicesRepository.getTypesByName(typeName);
+
+        if(deviceTypes == null){
+            deviceTypes = new DeviceTypes();
+            deviceTypes.setDeviceTypeName(typeName);
+        }
+
+        device.setDeviceTypes(deviceTypes);
+
         devicesRepository.saveNewDevicesDetails(device);
     }
 
@@ -78,8 +92,4 @@ public class DevicesService {
         return devicesRepository.getDeviceBySerialNumber(serialNumber);
     }
 
-    public List<SugarTestsMVC> getAllSugarTestsByDevice(Device device) {
-        return devicesRepository.getAllSugarTestsByDevice(device);
-
-    }
 }

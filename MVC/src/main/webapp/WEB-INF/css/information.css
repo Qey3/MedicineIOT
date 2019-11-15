@@ -1,0 +1,22 @@
+.main-picture{
+    margin: 0;
+    height: 100%;
+    /*background-image: url(resources/image/iot-medicine.jpg);*/
+    background-image: url("iot-medicine.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/*body{*/
+/*margin: 0;*/
+/*height: 100%;*/
+/*background-image: url(WEB-INF/image/gepard.jpg);*/
+/*background-size: cover;*/
+/*background-position: center center;*/
+/*background-attachment: fixed;*/
+/*position: relative;*/
+/*}*/
+
+

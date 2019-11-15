@@ -23,7 +23,7 @@ public class SugarTestsMVC implements Serializable {
 
     private Double glucose;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.LAZY)//, cascade = CascadeType.MERGE)
     private Device device;
 
 }

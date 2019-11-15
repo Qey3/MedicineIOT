@@ -29,11 +29,12 @@ public class CopySugarService {
     DevicesRepository devicesRepository;
 
 
-    @Scheduled(cron = "0/50 * * * * *")
+//    @Scheduled(cron = "0/10 * * * * *")
+    @Scheduled(fixedDelay = 1500)
     @Transactional("transactionManager")
-//    @Scheduled(fixedDelay = 30000)
-    public void executeCopy() {
+    public synchronized void executeCopy() {
         log.info("do new copy");
+        long startTime = System.currentTimeMillis();
         Long last_id = copySugarRepo.getLastId();
         log.info("old last_id = " + last_id);
         List<SugarTests> sugarTests = copySugarRepo.getNewSugarTests(last_id);
@@ -62,7 +63,9 @@ public class CopySugarService {
                 log.warning("error " + e.getMessage());
             }
             log.info(" new last_id = " + last_id);
-            copySugarRepo.saveLastId(new LastId(1L, last_id));
+            copySugarRepo.saveLastId(last_id);
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            log.info("time for copy table " + elapsedTime + "ms");
         }
 
     }

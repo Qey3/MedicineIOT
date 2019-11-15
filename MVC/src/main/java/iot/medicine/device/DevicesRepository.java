@@ -3,7 +3,9 @@ package iot.medicine.device;
 import my.entity.mvc.SugarTestsMVC;
 import my.entity.mvc.device.Device;
 import my.entity.mvc.device.DeviceTypeName;
+import my.entity.mvc.device.DeviceTypes;
 import my.entity.mvc.device.DevicesDetails;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -67,15 +69,15 @@ public class DevicesRepository {
 
     @Transactional("transactionManager")
     public Device getDeviceBySerialNumber(Long serialNumber) {
-        log.info("serialnumber = "+serialNumber);
+//        log.info("serialnumber = "+serialNumber);
         try {
             return sessionFactory.getCurrentSession()
                     .createQuery("from Device where serialNumber =:param1 and endUse is null", Device.class)
                     .setParameter("param1", serialNumber)
                     .getSingleResult();
         } catch (Exception e) {
-            log.warning("getDeviceBySerialNumber warning"+e.getMessage());
-            return new Device();
+            log.warning("getDeviceBySerialNumber warning "+e.getMessage());
+            return null;
         }
     }
 
@@ -95,15 +97,15 @@ public class DevicesRepository {
                 .update(device);
     }
 
-    public List<SugarTestsMVC> getAllSugarTestsByDevice(Device device) {
-        Date end = new Date();
-        if(device.getEndUse() != null) end = device.getEndUse();
-        final Date endDate = end;
-        return sessionFactory.getCurrentSession()
-                .get(Device.class, device.getId())
-                .getSugarTestMVC().stream()
-                .filter(sugarTestsMVC -> sugarTestsMVC.getAnalysisTime().after(device.getStartUse()))
-                .filter(sugarTestsMVC -> sugarTestsMVC.getAnalysisTime().before(endDate))
-                .collect(Collectors.toList());
+    public DeviceTypes getTypesByName(DeviceTypeName typeName) {
+        try {
+            return sessionFactory.getCurrentSession()
+                    .createQuery("from DeviceTypes d where d.deviceTypeName like :typeName", DeviceTypes.class)
+                    .setParameter("typeName", typeName)
+                    .getSingleResult();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return null;
+        }
     }
 }

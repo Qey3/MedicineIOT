@@ -13,11 +13,14 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.SchedulingConfigurer;
+import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -25,6 +28,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 @Configuration
 @ComponentScan("iot.medicine")
@@ -33,7 +38,7 @@ import java.util.Properties;
 @EnableScheduling
 @PropertySource("classpath:database.properties")
 @PropertySource("classpath:hibernate.properties")
-public class WebAppConfiguration extends WebMvcConfigurerAdapter {
+public class WebAppConfiguration extends WebMvcConfigurerAdapter implements SchedulingConfigurer {
 
     @Autowired
     Environment env;
@@ -41,6 +46,23 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/", "/homePage");
+    }
+
+    @Override
+    public void configureTasks (ScheduledTaskRegistrar taskRegistrar) {
+        taskRegistrar.setScheduler (taskExecutor ());
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("resources/image/").addResourceLocations("/resources/image/");
+        registry.addResourceHandler("WEB-INF/css/").addResourceLocations("/WEB-INF/css/");
+    }
+
+    @Bean(destroyMethod = "shutdown")
+    public Executor taskExecutor() {
+        return Executors.//newSingleThreadScheduledExecutor();
+                newScheduledThreadPool(1);
     }
 
     @Bean
@@ -52,11 +74,11 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
         resolver.setSuffix(".jsp");
         return resolver;
     }
-    @Bean
+    @Bean(name = "multipartResolver")
     CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver resolver
                 = new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(2500000);
+        resolver.setMaxUploadSize(-1);
         return resolver;
     }
 

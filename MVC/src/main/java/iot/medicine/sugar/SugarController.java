@@ -2,9 +2,12 @@ package iot.medicine.sugar;
 
 import iot.medicine.copydatabase.CopySugarRepo;
 import iot.medicine.copydatabase.CopySugarService;
+import my.entity.mvc.Chart;
 import my.entity.mvc.SugarTestsMVC;
 import my.entity.sugarMS.SugarTests;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -32,16 +35,41 @@ public class SugarController {
 
         String userName = principal.getName();
 
-        List<SugarTestsMVC> tests = new ArrayList<>();
-        tests = productCatalogService.getTests(page, userName);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        log.info("items row = " + tests.size());
-//        log.info("LAS ID = " + copySugarRepo.getNewSugarTests(0L).size());
+        boolean hasUserRole = authentication.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ROLE_USER"));
 
-        model.addAttribute("tests", tests);
+        boolean hasAdminRole = authentication.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
+
+        if (hasUserRole) {
+            model.addAttribute("tests", productCatalogService.getTests(page, userName, "0"));
+        }else if(hasAdminRole){
+            model.addAttribute("tests", productCatalogService.getAdminTests(page));
+        }
+
+//        model.addAttribute("tests", productCatalogService.getTests(page, userName, "0"));
         model.addAttribute("page", page);
         return "sugarTests";
     }
+    @RequestMapping("/pieChart")
+    public String showChart(Model model, Principal principal){
 
+        String userName = principal.getName();
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        boolean hasUserRole = authentication.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ROLE_USER"));
+
+        List<Chart> charts = productCatalogService.getChartsForUser(userName);
+
+
+
+        model.addAttribute("pieDataList", charts);
+
+        return "chart";
+    }
 
 }

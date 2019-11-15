@@ -24,15 +24,31 @@
     </c:forEach>
     </tbody>
 </table>
-<c:if test="${page>1}">
-    <a class="btn btn-primary"
-       href="${pageContext.request.contextPath}/sugar-page/${page-1}"
-       role="button"><c:out value="${page-1}"/></a>
-</c:if>
-<c:if test="${tests.size()==21}">
-    <a class="btn btn-primary"
-       href="${pageContext.request.contextPath}/sugar-page/${page+1}"
-       role="button"><c:out value="${page+1}"/></a>
-</c:if>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <c:if test="${page>1}">
+        <li class="page-item">
+            </c:if>
+            <c:if test="${page<=1}">
+        <li class="page-item disabled">
+            </c:if>
+            <a class="page-link" href="${pageContext.request.contextPath}/sugar-page/${page-1}" tabindex="-1"
+               aria-disabled="${page<2}">Previous</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="${pageContext.request.contextPath}/sugar-page/${page+1}">Next</a>
+        </li>
+    </ul>
+</nav>
+<%--<c:if test="${page>1}">--%>
+<%--    <a class="btn btn-primary"--%>
+<%--       href="${pageContext.request.contextPath}/sugar-page/${page-1}"--%>
+<%--       role="button"><c:out value="${page-1}"/></a>--%>
+<%--</c:if>--%>
+<%--<c:if test="${tests.size()==21}">--%>
+<%--    <a class="btn btn-primary"--%>
+<%--       href="${pageContext.request.contextPath}/sugar-page/${page+1}"--%>
+<%--       role="button"><c:out value="${page+1}"/></a>--%>
+<%--</c:if>--%>
 
 <jsp:include page="footer.jsp"/>

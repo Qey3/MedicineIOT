@@ -1,7 +1,6 @@
-package iot.medicine.copyDatabaseTest;
+package iot.medicine.sugar;
 
 import iot.medicine.WebAppTestConfiguration;
-import iot.medicine.copydatabase.CopySugarService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,14 +25,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = WebAppTestConfiguration.class)
-public class copyDatabaseTest {
-
+public class SearchControllerTest {
 
     @Autowired
     WebApplicationContext webApplicationContext;
-
-    @Autowired
-    CopySugarService copySugarService;
 
     private MockMvc mockMvc;
 
@@ -50,8 +45,28 @@ public class copyDatabaseTest {
     @Sql(value ={"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"},
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(value = "/dropAll.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-    public void executeCopyTest() throws Exception {
+    public void sugarControllerTest() throws Exception {
 
-//        copySugarService.executeCopy();
+        Principal principal = new Principal() {
+            @Override
+            public String getName() {
+                return "user";
+            }
+        };
+
+        String viewName;
+        ModelAndView modelAndView =
+                mockMvc.perform(get("/search").principal(principal)
+                        .param("searchStr", "5"))
+                        .andReturn()
+                        .getModelAndView();
+
+        viewName = modelAndView.getViewName();
+        List items = (List)modelAndView.getModel().get("tests");
+
+        assertEquals("sugarTests", viewName);
+        assertNotNull(items);
+        assertEquals(1, items.size());
     }
+
 }

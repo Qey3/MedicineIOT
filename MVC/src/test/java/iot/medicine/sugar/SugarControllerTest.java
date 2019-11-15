@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -45,6 +46,7 @@ public class SugarControllerTest {
     @Sql(value ={"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"},
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(value = "/dropAll.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @WithMockUser(username = "user", roles={"USER"})
     public void sugarControllerTest() throws Exception {
 
         Principal principal = new Principal() {
@@ -66,6 +68,34 @@ public class SugarControllerTest {
         assertEquals("sugarTests", viewName);
         assertNotNull(items);
         assertEquals(11, items.size());
+    }
+
+    @Test
+    @Sql(value ={"/deviceTypeTest.sql", "/devicesDetailsTest.sql", "/usersTest.sql", "/deviceTest.sql", "/sugarControllerTests.sql", "/usersRole.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "/dropAll.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @WithMockUser(username = "admin", roles={"ADMIN"})
+    public void sugarAdminControllerTest() throws Exception {
+
+        Principal principal = new Principal() {
+            @Override
+            public String getName() {
+                return "admin";
+            }
+        };
+
+        String viewName;
+        ModelAndView modelAndView =
+                mockMvc.perform(get("/sugar-page/1").principal(principal))
+                        .andReturn()
+                        .getModelAndView();
+
+        viewName = modelAndView.getViewName();
+        List items = (List)modelAndView.getModel().get("tests");
+
+        assertEquals("sugarTests", viewName);
+        assertNotNull(items);
+        assertEquals(0, items.size());
     }
 
 }

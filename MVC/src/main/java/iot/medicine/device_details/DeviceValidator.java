@@ -1,4 +1,4 @@
-package iot.medicine.device;
+package iot.medicine.device_details;
 
 import my.entity.mvc.device.Device;
 import my.entity.mvc.device.DevicesDetails;

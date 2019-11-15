@@ -1,5 +1,6 @@
-package iot.medicine.device;
+package iot.medicine.device_details;
 
+import iot.medicine.device.DevicesService;
 import my.entity.mvc.device.DevicesDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,14 +10,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.logging.Logger;
+
 @Controller
 public class DeviceItemController {
+
+    private static final Logger log = Logger.getLogger("DeviceItemController");
 
     @Autowired
     DevicesService devicesService;
 
     @GetMapping("device-catalog/item/{id}")
     public String showProductItem(@PathVariable Long id, Model model){
+
         DevicesDetails deviceDetails = devicesService.getDeviceDetails(id);
         model.addAttribute("device", deviceDetails);
         return "deviceItemPage";

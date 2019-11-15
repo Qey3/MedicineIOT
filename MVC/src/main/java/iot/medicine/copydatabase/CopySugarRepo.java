@@ -22,6 +22,7 @@ public class CopySugarRepo {
     private static final Logger log = Logger.getLogger("NotificationRepo");
 
     @Autowired
+    @Qualifier("sessionFactory")
     SessionFactory sessionFactory;
 
     @Autowired
@@ -31,25 +32,38 @@ public class CopySugarRepo {
     public Long getLastId() {
         LastId last_id = sessionFactory.getCurrentSession()
                 .get(LastId.class, 1L);
-        if (last_id == null) return 0L;
-        return last_id.getLast_id();
+        return last_id == null ? 0L : last_id.getLast_id();
     }
 
-    public void saveLastId(LastId lastId) {
-        sessionFactory.getCurrentSession()
-                .persist(lastId);
+    public void saveLastId(Long lastId) {
+
+        LastId id = new LastId(1L, lastId);
+
+//        sessionFactory.getCurrentSession()
+//                .update(id);
+
+        try {
+            sessionFactory.getCurrentSession()
+                    .createQuery("update LastId set last_id = :lastId where id = 1")
+                    .setParameter("lastId", lastId)
+                    .executeUpdate();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
     }
 
+    @Transactional("transactionManager_sugar")
     public List<SugarTests> getNewSugarTests(Long last_id) {
         return sessionFactory_ms.getCurrentSession()
                 .createQuery("from sugartest where id > :param1", SugarTests.class)
                 .setParameter("param1", last_id)
+                .setMaxResults(1000)
                 .list();
     }
 
     public void copySugarTests(List<SugarTestsMVC> sugarTests) {
 //        log.info("copySugarTests" + sugarTests.size() + "List.get(0) - " + sugarTests.get(0));
-        for(SugarTestsMVC testsMVC : sugarTests){
+        for (SugarTestsMVC testsMVC : sugarTests) {
             try {
                 sessionFactory.getCurrentSession()
                         .save(testsMVC);
