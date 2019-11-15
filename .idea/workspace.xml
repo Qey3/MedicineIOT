@@ -1,52 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5340687-f1c6-471e-8c54-9fc18689ed31" name="Default Changelist" comment="add copy sugar data from ms_db to mvc_db">
-      <change afterPath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/Chart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SearchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/css/information.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/chart.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVC/src/main/webapp/resources/image/iot-medicine.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/sugar/SearchControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/SugarTestsMVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/SugarTestsMVC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/device/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/device/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/device/DevicesDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/src/main/java/my/entity/mvc/device/DevicesDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/WebAppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/WebAppConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/WebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/WebAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/copydatabase/CopySugarRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/copydatabase/CopySugarRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/copydatabase/CopySugarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/copydatabase/CopySugarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/AddDeviceDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device_details/AddDeviceDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DeviceCatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device_details/DeviceCatalogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DeviceItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device_details/DeviceItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DeviceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device_details/DeviceValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DevicesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DevicesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DevicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/DevicesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/UserDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/UserDeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/UserDeviceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/UserDeviceValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/java/iot/medicine/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/resources/changeLog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/resources/changeLog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/resources/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/resources/ehcache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/addDeviceDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/addDeviceDetails.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/addUserDevice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/addUserDevice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/homePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/homePage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/sugarTests.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/sugarTests.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/userDeviceCatalog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/userDeviceCatalog.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/WebAppTestConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/WebAppTestConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/copyDatabaseTest/copyDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/copyDatabaseTest/copyDatabaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/sugar/SugarControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/test/java/iot/medicine/sugar/SugarControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/test/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/test/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVC/src/test/resources/sugarControllerTests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MVC/src/test/resources/sugarControllerTests.sql" afterDir="false" />
-    </list>
+    <list default="true" id="d5340687-f1c6-471e-8c54-9fc18689ed31" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/MVC/target/" />
@@ -75,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/device/UserDeviceController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="562">
@@ -88,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="65" column="57" lean-forward="true" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+              <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -138,23 +93,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="34" column="26" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="488">
+              <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -601,6 +547,33 @@
               <item name="MedicineIOT" type="462c0819:PsiDirectoryNode" />
               <item name="MVC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IOTproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedicineIOT" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IOTproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedicineIOT" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IOTproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedicineIOT" type="462c0819:PsiDirectoryNode" />
+              <item name="MVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -831,7 +804,7 @@
       <workItem from="1573288468802" duration="16068000" />
       <workItem from="1573375005309" duration="20213000" />
       <workItem from="1573477382066" duration="67036000" />
-      <workItem from="1573759616416" duration="16982000" />
+      <workItem from="1573759616416" duration="18475000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1573572929191</created>
@@ -854,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573654360069</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add copy sugar data from ms_db to mvc_db">
+      <created>1573833416531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573833416531</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -890,7 +870,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120299000" />
+    <option name="totallyTimeSpent" value="121792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -1034,13 +1014,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/sugarTests.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="51" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Microservices/SugarService/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1360,16 +1333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="34" column="26" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MVC/src/main/webapp/WEB-INF/jsp/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="607">
@@ -1381,13 +1344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="65" column="57" lean-forward="true" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1449,6 +1405,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="562">
           <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SugarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/user/UserValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MVC/src/main/java/iot/medicine/sugar/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
