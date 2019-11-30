@@ -41,10 +41,6 @@ a. User ID
 b. User name
 c. User password
 
-d. Etc.
-
-e. Ролb: пользователь, администратор
-
 Навигационная карта Dashboard
 
 1. Home page – главная страница
